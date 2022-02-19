@@ -13,7 +13,7 @@ export const shareStatus = (
     `${GAME_TITLE} ${solutionIndex} ${
       lost ? 'X' : guesses.length
     }/${MAX_CHALLENGES}${isHardMode ? '*' : ''}\n\n` +
-      generateEmojiGrid(guesses)
+      generateEmojiGrid(guesses) + '\nhttps://levantdle.netlify.app'
   )
 }
 
@@ -28,19 +28,19 @@ export const generateEmojiGrid = (guesses: string[]) => {
           switch (status[i]) {
             case 'correct':
               if (isHighContrast) {
-                return '🟧'
+                return '\u202E🟧'
               }
-              return '🟩'
+              return '\u202E🟩'
             case 'present':
               if (isHighContrast) {
-                return '🟦'
+                return '\u202E🟦'
               }
-              return '🟨'
+              return '\u202E🟨'
             default:
               if (localStorage.getItem('theme') === 'dark') {
-                return '⬛'
+                return '\u202E⬛'
               }
-              return '⬜'
+              return '\u202E⬜'
           }
         })
         .join('')
